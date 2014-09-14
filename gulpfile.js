@@ -30,8 +30,7 @@ gulp.task('vendorJS', function(){
         './bower_components/foundation/js/vendor/jquery.js',
         //'./bower_components/foundation/js/foundation.js',
         './bower_components/angular*/**/*.js',
-        './vendor/mock.js',
-        './vendor/nprogress.js'])
+        './vendor/mock.js'])
         .pipe(plugins.concat('lib.js'))
         .pipe(gulp.dest('./build'));
 });
