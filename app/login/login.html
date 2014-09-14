@@ -1,0 +1,7 @@
+<div class="loginContainer">
+    <h1>{{user.display_name ? user.display_name : user.name}}</h1>
+
+    <form ng-submit="login(form)">
+        <input tabindex="0" ng-model="form.password" ng-focus="'true'" class="pwinput" type="password">
+    </form>
+</div>

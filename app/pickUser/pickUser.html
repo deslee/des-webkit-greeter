@@ -1,0 +1,8 @@
+<div class="loginContainer">
+    <h1 class="logo">{{hostname}}<span class="after">login</span></h1>
+    <ul class="users">
+        <li ng-repeat="user in users">
+            <dm-user cursor="$index==cursor" user="user" ng-click="userSelected(user)"></dm-user>
+        </li>
+    </ul>
+</div>

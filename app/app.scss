@@ -1,0 +1,82 @@
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin horizontal-align {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+$darkred: #630B11;
+$darkest: #1E1D1C;
+$darker: #2A2927;
+$dark: #33322F;
+$light: #999;
+
+body {
+  background: $darker;
+  color: $light;
+  font-family: sans-serif;
+}
+
+.container {
+  @include vertical-align;
+  text-align: center;
+}
+
+.loginContainer {
+}
+
+h1, .logo {
+  color: $light;
+  .before {
+    vertical-align: super;
+    font-size: 50%;
+  }
+  .after {
+    vertical-align: sub;
+    font-size: 50%;
+  }
+  font-family: monospace;
+}
+
+ul.users {
+  margin-left: 0;
+  li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+.user {
+  display: inline-block;
+  color: $light;
+  -moz-text-shadow: 0 0 1px $darkred;
+  -webkit-text-shadow: 0 0 1px $darkred;
+  text-shadow: 0px 0px 1px $darkred;
+  padding: 1px 2px;
+
+  &.cursor {
+    border: 1px dashed $light;
+    padding: 0;
+  }
+}
+
+input.pwinput {
+  background-color: $darkest;
+  &:focus {
+    background-color: $darkest;
+  }
+  color: white;
+  text-align: center;
+  font-family: monospace;
+}
