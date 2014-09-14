@@ -28,7 +28,7 @@ gulp.task('vendorJS', function(){
     //concatenate vendor JS files
     gulp.src(['!./bower_components/**/*.min.js',
         './bower_components/foundation/js/vendor/jquery.js',
-        './bower_components/foundation/js/foundation.js',
+        //'./bower_components/foundation/js/foundation.js',
         './bower_components/angular*/**/*.js',
         './vendor/mock.js'])
         .pipe(plugins.concat('lib.js'))

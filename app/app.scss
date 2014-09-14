@@ -1,20 +1,3 @@
-@mixin vertical-align {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-@mixin horizontal-align {
-  display: inline-block;
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
 $darkred: #630B11;
 $darkest: #1E1D1C;
 $darker: #2A2927;
@@ -25,11 +8,26 @@ body {
   background: $darker;
   color: $light;
   font-family: sans-serif;
+
+  table {
+    background-color: transparent;
+    height: 100vh;
+    width: 100vw;
+    border: none;
+    margin: 0;
+    tr {
+      border: none;
+      td {
+        border: none;
+        vertical-align: middle;
+        text-align: center;
+      }
+    }
+  }
 }
 
 .container {
-  @include vertical-align;
-  text-align: center;
+
 }
 
 .loginContainer {

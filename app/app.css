@@ -2,14 +2,18 @@ body {
   background: #2a2927;
   color: #999999;
   font-family: sans-serif; }
-
-.container {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  text-align: center; }
+  body table {
+    background-color: transparent;
+    height: 100vh;
+    width: 100vw;
+    border: none;
+    margin: 0; }
+    body table tr {
+      border: none; }
+      body table tr td {
+        border: none;
+        vertical-align: middle;
+        text-align: center; }
 
 h1, .logo {
   color: #999999;
