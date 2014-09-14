@@ -26,9 +26,7 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
                 (function(x) {
                     $scope.form.password = '';
                     var pwinput = $('.pwinput');
-                    pwinput.text
                     var className = pwinput.attr('class');
-                    console.log(className);
                     pwinput.removeClass()
                         .addClass(x + ' invalidpw animated ' + className)
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
@@ -40,7 +38,6 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
 
             }
         });
-        console.log($rootScope.authenticating);
         if ($rootScope.authenticating) {
             lightdm.cancel_authentication();
         }
