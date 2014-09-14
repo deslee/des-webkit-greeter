@@ -19,7 +19,23 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
             }
             else {
                 lightdm.start_authentication($scope.user.name);
-                $scope.form.password = '';
+
+                (function(x) {
+                    $scope.form.password = '';
+                    var pwinput = $('.pwinput');
+                    var className = pwinput.attr('class');
+                    console.log(className);
+                    pwinput.removeClass()
+                        .addClass(x + ' invalidpw animated ' + className)
+                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                            $(this).removeClass().addClass(className);
+                            $scope.$apply(function() {
+                                $scope.form.password = '';
+                            });
+                        });
+                })('shake');
+
+
             }
         });
         console.log($rootScope.authenticating);
