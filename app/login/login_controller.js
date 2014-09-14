@@ -23,8 +23,9 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
             else {
                 lightdm.start_authentication($scope.user.name);
 
+                $scope.form.password = '';
+
                 (function(x) {
-                    $scope.form.password = '';
                     var pwinput = $('.pwinput');
                     var className = pwinput.attr('class');
                     console.log(className);
