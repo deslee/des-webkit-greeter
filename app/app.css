@@ -34,14 +34,11 @@ ul.users {
 
 .user {
   display: inline-block;
-  color: #999999;
-  -moz-text-shadow: 0 0 1px #630b11;
-  -webkit-text-shadow: 0 0 1px #630b11;
-  text-shadow: 0px 0px 1px #630b11;
-  padding: 1px 2px; }
+  color: #999999; }
   .user.cursor {
-    border: 1px dashed #999999;
-    padding: 0; }
+    -moz-text-shadow: 0 0 1px #630b11;
+    -webkit-text-shadow: 0 0 1px #630b11;
+    text-shadow: 0px 0px 1px #630b11; }
 
 input.pwinput {
   background-color: #1e1d1c;
@@ -53,3 +50,20 @@ input.pwinput {
 
 input.invalidpw {
   border: 1px solid red !important; }
+
+.footer {
+  color: #999999;
+  height: 40px;
+  padding: 0; }
+  .footer > div {
+    display: inline-block;
+    margin: 0 40px;
+    text-align: center; }
+    .footer > div:hover {
+      -moz-text-shadow: 0 0 1px #630b11;
+      -webkit-text-shadow: 0 0 1px #630b11;
+      text-shadow: 0px 0px 1px #630b11; }
+    .footer > div img {
+      margin: 0 auto;
+      display: block;
+      height: 40px; }

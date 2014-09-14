@@ -58,14 +58,11 @@ ul.users {
 .user {
   display: inline-block;
   color: $light;
-  -moz-text-shadow: 0 0 1px $darkred;
-  -webkit-text-shadow: 0 0 1px $darkred;
-  text-shadow: 0px 0px 1px $darkred;
-  padding: 1px 2px;
 
   &.cursor {
-    border: 1px dashed $light;
-    padding: 0;
+    -moz-text-shadow: 0 0 1px $darkred;
+    -webkit-text-shadow: 0 0 1px $darkred;
+    text-shadow: 0px 0px 1px $darkred;
   }
 }
 
@@ -81,4 +78,25 @@ input.pwinput {
 
 input.invalidpw {
   border: 1px solid red !important;
+}
+
+.footer {
+  color: $light;
+  height: 40px;
+  padding: 0;
+  > div {
+    display: inline-block;
+    margin: 0 40px;
+    text-align: center;
+    &:hover {
+      -moz-text-shadow: 0 0 1px $darkred;
+      -webkit-text-shadow: 0 0 1px $darkred;
+      text-shadow: 0px 0px 1px $darkred;
+    }
+    img {
+      margin: 0 auto;
+      display: block;
+      height: 40px;
+    }
+  }
 }
