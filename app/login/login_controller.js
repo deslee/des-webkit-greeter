@@ -11,9 +11,12 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
     .controller('LoginCtrl', function ($rootScope, $scope, $routeParams) {
         $scope.user = $routeParams;
         $scope.login = function (form) {
+            NProgress.start();
+            NProgress.set(0.4);
             lightdm.provide_secret(form.password);
         };
         $scope.$on('authentication_complete', function () {
+            NProgress.done();
             if (lightdm.is_authenticated) {
                 lightdm.login(lightdm.authentication_user, lightdm.default_session);
             }

@@ -59,9 +59,12 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
     .controller('LoginCtrl', function ($rootScope, $scope, $routeParams) {
         $scope.user = $routeParams;
         $scope.login = function (form) {
+            NProgress.start();
+            NProgress.set(0.4);
             lightdm.provide_secret(form.password);
         };
         $scope.$on('authentication_complete', function () {
+            NProgress.done();
             if (lightdm.is_authenticated) {
                 lightdm.login(lightdm.authentication_user, lightdm.default_session);
             }
@@ -93,23 +96,6 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
     });
 
 
-/**
- * Created by desmond on 9/13/2014.
- */
-angular.module('user', ['userDirective']);
-/**
- * Created by desmond on 9/13/2014.
- */
-angular.module('userDirective', []).directive('dmUser', function() {
-    return {
-        restrict: 'EA',
-        scope: {
-            cursor: '=',
-            user: '='
-        },
-        templateUrl: 'user/user.html'
-    }
-});
 /**
  * Created by desmond on 9/13/2014.
  */
@@ -145,3 +131,20 @@ angular.module('pickUser', [])
             }
         })
     });
+/**
+ * Created by desmond on 9/13/2014.
+ */
+angular.module('user', ['userDirective']);
+/**
+ * Created by desmond on 9/13/2014.
+ */
+angular.module('userDirective', []).directive('dmUser', function() {
+    return {
+        restrict: 'EA',
+        scope: {
+            cursor: '=',
+            user: '='
+        },
+        templateUrl: 'user/user.html'
+    }
+});
