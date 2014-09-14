@@ -12,6 +12,7 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
         $scope.user = $routeParams;
         $scope.login = function (form) {
             lightdm.provide_secret(form.password);
+            $('.pwinput')[0].disabled = true;
         };
         $scope.$on('authentication_complete', function () {
             if (lightdm.is_authenticated) {
@@ -24,13 +25,13 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
                     $scope.form.password = '';
                     var pwinput = $('.pwinput');
                     var className = pwinput.attr('class');
-                    console.log(className);
                     pwinput.removeClass()
                         .addClass(x + ' invalidpw animated ' + className)
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
                             $(this).removeClass().addClass(className);
                             $scope.$apply(function() {
                                 $scope.form.password = '';
+                                $('.pwinput')[0].disabled = false;
                             });
                         });
                 })('shake');
