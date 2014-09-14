@@ -31,7 +31,6 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
                         .addClass(x + ' invalidpw animated ' + className)
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
                             $(this).removeClass().addClass(className);
-                            $scope.$apply();
                         });
                 })('shake');
 

@@ -79,7 +79,6 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
                         .addClass(x + ' invalidpw animated ' + className)
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
                             $(this).removeClass().addClass(className);
-                            $scope.$apply();
                         });
                 })('shake');
 
@@ -95,23 +94,6 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
     });
 
 
-/**
- * Created by desmond on 9/13/2014.
- */
-angular.module('user', ['userDirective']);
-/**
- * Created by desmond on 9/13/2014.
- */
-angular.module('userDirective', []).directive('dmUser', function() {
-    return {
-        restrict: 'EA',
-        scope: {
-            cursor: '=',
-            user: '='
-        },
-        templateUrl: 'user/user.html'
-    }
-});
 /**
  * Created by desmond on 9/13/2014.
  */
@@ -147,3 +129,20 @@ angular.module('pickUser', [])
             }
         })
     });
+/**
+ * Created by desmond on 9/13/2014.
+ */
+angular.module('user', ['userDirective']);
+/**
+ * Created by desmond on 9/13/2014.
+ */
+angular.module('userDirective', []).directive('dmUser', function() {
+    return {
+        restrict: 'EA',
+        scope: {
+            cursor: '=',
+            user: '='
+        },
+        templateUrl: 'user/user.html'
+    }
+});
