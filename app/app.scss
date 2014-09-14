@@ -78,3 +78,7 @@ input.pwinput {
   text-align: center;
   font-family: monospace;
 }
+
+input.invalidpw {
+  border: 1px solid red !important;
+}

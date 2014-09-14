@@ -38,6 +38,7 @@ gulp.task('vendorJS', function(){
 gulp.task('vendorCSS', function(){
     //concatenate vendor CSS files
     gulp.src(['!./bower_components/**/*.min.css',
+        './vendor/*.css',
         './bower_components/**/*.css'])
         .pipe(plugins.concat('lib.css'))
         .pipe(gulp.dest('./build'));

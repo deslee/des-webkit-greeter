@@ -58,15 +58,29 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
     })
     .controller('LoginCtrl', function ($rootScope, $scope, $routeParams) {
         $scope.user = $routeParams;
-        $scope.login = function(form) {
-          lightdm.provide_secret(form.password);
+        $scope.login = function (form) {
+            lightdm.provide_secret(form.password);
         };
-        $scope.$on('authentication_complete', function() {
-            if(lightdm.is_authenticated) {
+        $scope.$on('authentication_complete', function () {
+            if (lightdm.is_authenticated) {
                 lightdm.login(lightdm.authentication_user, lightdm.default_session);
             }
             else {
                 lightdm.start_authentication($scope.user.name);
+                $scope.form.password = '';
+
+                (function(x) {
+                    var pwinput = $('.pwinput');
+                    var className = pwinput.attr('class');
+                    console.log(className);
+                    pwinput.removeClass()
+                        .addClass(x + ' invalidpw animated ' + className)
+                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                            $(this).removeClass().addClass(className);
+                        });
+                })('shake');
+
+
             }
         });
         console.log($rootScope.authenticating);
@@ -79,6 +93,23 @@ angular.module('des-webkit-greeter-main', ['ngRoute', 'user'])
     });
 
 
+/**
+ * Created by desmond on 9/13/2014.
+ */
+angular.module('user', ['userDirective']);
+/**
+ * Created by desmond on 9/13/2014.
+ */
+angular.module('userDirective', []).directive('dmUser', function() {
+    return {
+        restrict: 'EA',
+        scope: {
+            cursor: '=',
+            user: '='
+        },
+        templateUrl: 'user/user.html'
+    }
+});
 /**
  * Created by desmond on 9/13/2014.
  */
@@ -114,20 +145,3 @@ angular.module('pickUser', [])
             }
         })
     });
-/**
- * Created by desmond on 9/13/2014.
- */
-angular.module('user', ['userDirective']);
-/**
- * Created by desmond on 9/13/2014.
- */
-angular.module('userDirective', []).directive('dmUser', function() {
-    return {
-        restrict: 'EA',
-        scope: {
-            cursor: '=',
-            user: '='
-        },
-        templateUrl: 'user/user.html'
-    }
-});

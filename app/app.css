@@ -50,3 +50,6 @@ input.pwinput {
   font-family: monospace; }
   input.pwinput:focus {
     background-color: #1e1d1c; }
+
+input.invalidpw {
+  border: 1px solid red !important; }
